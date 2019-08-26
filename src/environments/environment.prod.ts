@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyDl6snJynQjvq3xZ3qq91xbgiifLhl1B-Q",
+    apiKey: "AIzaSyCAofsWGTKxpyLRfSn1jRaK9pg-pIKngts",
     authDomain: "organic-shop-f3342.firebaseapp.com",
     databaseURL: "https://organic-shop-f3342.firebaseio.com",
     projectId: "organic-shop-f3342",
