@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit(loginForm: any): void {
+    // ***** NEED TO WORK ON ***** //
     console.log(loginForm);
   }
 

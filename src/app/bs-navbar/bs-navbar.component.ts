@@ -1,4 +1,8 @@
+// CORE MODULES
 import { Component, OnInit } from '@angular/core';
+
+// THIRD PARTY MODULES
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'bs-navbar',
@@ -6,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bs-navbar.component.scss']
 })
 export class BsNavbarComponent implements OnInit {
+  public username: string = 'Username';
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth) {
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.afAuth.authState.subscribe(userData => {
+      userData ? this.username = userData.displayName.split(' ')[0] : this.username = 'Username';
+    });
+  }
+
+  logout(): void {
+    this.afAuth.auth.signOut();
   }
 
 }
