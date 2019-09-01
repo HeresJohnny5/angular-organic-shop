@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // THIRD PARTY MODULES
+import * as firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
@@ -10,15 +11,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
   styleUrls: ['./bs-navbar.component.scss']
 })
 export class BsNavbarComponent implements OnInit {
-  public username: string = 'Username';
+  public user: firebase.User;
 
   constructor(private afAuth: AngularFireAuth) {
   }
 
   ngOnInit(): void {
-    this.afAuth.authState.subscribe(userData => {
-      userData ? this.username = userData.displayName.split(' ')[0] : this.username = 'Username';
-    });
+    this.afAuth.authState.subscribe(userData => this.user = userData);
   }
 
   logout(): void {
