@@ -1,5 +1,9 @@
 <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)" class="form-signin">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <button class="btn bnt-lg btn-block google-login" type="submit" (click)="login()">
+    Login with Google
+  </button>
+
   <div ngModelGroup="contact" #contactGroup="ngModelGroup">
     <div class="form-group">
       <input ngModel name="inputEmail" id="inputEmail" class="form-control" type="email" placeholder="Email address" required autofocus>
